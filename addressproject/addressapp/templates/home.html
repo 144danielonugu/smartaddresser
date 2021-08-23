@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{%load static%}
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>home page</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="https://kit.fontawesome.com/93a4f6f0df.js" crossorigin="anonymous"></script>
+    <nav class='navbar'>
+        <ul class='main'>
+            <img src="{%static 'logobcs.png'%}">
+            <a  href="" class='ab'><i class="fas fa-home"></i></a>
+            <a href="admin" class='ab'><i class="fas fa-user-cog"></i></a>
+            {%if user.is_authenticated%}
+            <a href="logout" class='ab'><i class="fas fa-sign-out-alt"></i></a>
+            <a  href="addresslist" class='ab'><i class="fas fa-edit"></i></a>
+            {%else%}
+            <a href="login" class='ab'><i class="fas fa-sign-in-alt"></i></a>
+            {%endif%}
+        </ul>
+    </nav>
+</head>
+<body>
+<div class='cont'>
+    <center>
+    <div class='welcometext'>
+        <h1>Welcome</h1>
+        <br>
+        <br>
+        <br>
+        <div>
+        {%if user.is_authenticated%}
+        <a href="addresslist"><input type='submit' value='Select Address' class='node'></a>
+        {%else%}
+        <a href="login"><input type='submit' value='Login' class='node'></a>
+        {%endif%}
+        </form>
+        </div>
+    </div>
+    </center>
+</div>
+</body>
+<style>
+a:hover{background-color:blue; border-radius:30px; }
+a{padding:20px; color:black; }
+.node{border:0; background-color:rgba(0, 26, 255, 0.938); border-radius:30px; height:50px; width:200px;}
+.welcometext{font-family: 'Times New Roman', Times, serif; color:white; margin-top:10%; }
+.main{display:flex; background-color:white; box-shadow: 5px 5px 5px  black; border:3px solid; margin:0; margin-left:0; margin-right:0; margin-top:0;}
+body{overflow:hidden; margin:0; padding:0;}
+@keyframes animates{0%,100%{background-image:url("{%static 'vine.jpg'%}");}25%{background-image:url("{%static 'fader.jpg'%}");}75%{background-image:url("{%static 'dear.jpg'%}");}100%{background-image: url("{%static 'rew.png'%}");}}
+.cont{overflow:hidden; position:absolute; left:0; right:0; width:100%; height:100%; animation:animates 15s ease infinite; background-size:cover;}
+</style>
+</html>

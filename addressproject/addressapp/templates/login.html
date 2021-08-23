@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{%load static%}
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>login  page</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <center>
+    <div class='logdiv'>
+        <center>
+            <h2 class='logtxt'>Login</h2>
+            <form method='post' action="login">
+            {%csrf_token%}
+            <input type='text' name='user' class='inputer' placeholder="Username" required><br><br><br>
+            <input type='password' name='codepass' class='inputer' placeholder="Password" required><br><br><br>
+            <input type="submit" value="Login" class='hellen'>
+            </form>
+        </center>
+    </div>
+    </center>
+</body>
+<style>
+    .logtxt:hover{color:white;}
+    .hellen:hover{background-color:red;}
+    .hellen{box-shadow:5px 5px 5px black; border:0px; width:150px; height:50px; background-color:rgba(226, 65, 25, 0.63); border-radius:30px;}
+    .inputer{border:0; width:250px; height:50px; border-radius:30px; text-align:center;}
+    .logtxt{color:red; font-family: fantasy;}
+    body{background-image:url("{%static 'dear.jpg'%}"); background-size: cover;}
+    .logdiv{margin-top:10%; height:300px; width:400px;}
+</style>
+</html>
